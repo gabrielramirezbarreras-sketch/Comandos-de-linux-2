@@ -1,0 +1,28 @@
+Practica 1: Actualizando y Instalando:
+cat /etc/apt/soucer
+git clone https://github.com/aristocratos/bashtop.git
+ls
+cd bashtop
+rm -rf ~/config/bashtop
+sudo rm -f /usr/local/bin/bashtop
+sudo apt autoremove -y
+
+Practica 2: Cron y At:
+crontab -e
+0 23 * sudo apt update && sudo apt upgrade -y
+crontab -e
+03 ** 0 /bin/reboot
+Sudo apt update
+sudo apt install at
+echo "rm -rf /tmp/*" | at now + 1 minute
+ls /tm
+
+Practica 3: comandos de disco:
+sudo fdisk -l 
+sudo mkfs.ext4 /dev/sda2
+sudo mkdir /mnt/sda2 
+sudo mount /dev/sda2 mi_particion
+cd /home/mi_particion
+sudo touch AdrianAlcantara.txt
+cd ..
+sudo umount /home/mi_particiion
