@@ -1,28 +1,49 @@
 Practica 1: Actualizando y Instalando:
-cat /etc/apt/soucer
-git clone https://github.com/aristocratos/bashtop.git
-ls
-cd bashtop
-rm -rf ~/config/bashtop
-sudo rm -f /usr/local/bin/bashtop
+sudo apt update && sudo apt upgrade -y
+cat /etc/apt/sources.list
+ls /etc/apt/sources.list.d/
+cat /etc/apt/sources.list.d/*.list
+apt search bashtop
+apt show bashtop
+sudo apt install bashtop -y
+bashtop
+sudo apt purge bashtop -y
+sudo apt purge bashtop -y
 sudo apt autoremove -y
+which bashtop
 
 Practica 2: Cron y At:
-crontab -e
-0 23 * sudo apt update && sudo apt upgrade -y
-crontab -e
-03 ** 0 /bin/reboot
-Sudo apt update
-sudo apt install at
+sudo crontab -e
+0 23 * * * apt update && apt upgrade -y
+sudo crontab -l
+sudo crontab -e
+0 3 * * 0 /sbin/reboot
+sudo crontab -l
+ls /tmp
+sudo apt install at -y
+sudo systemctl enable --now atd
 echo "rm -rf /tmp/*" | at now + 1 minute
-ls /tm
+atq
+ls /tmp
 
 Practica 3: comandos de disco:
-sudo fdisk -l 
-sudo mkfs.ext4 /dev/sda2
-sudo mkdir /mnt/sda2 
-sudo mount /dev/sda2 mi_particion
-cd /home/mi_particion
+lsblk
+sudo fdisk /dev/sdb
+n
+p
+1
+Enter
+Enter
+w
+lsblk
+sudo mkfs.ext4 /dev/sdb1
+mkdir ~/Desktop/disco20GB
+sudo mount /dev/sdb1 ~/Desktop/disco20GB
+sudo mount /dev/sdb1 /mnt
+df -h
+cd ~/Desktop/disco20GB
 sudo touch AdrianAlcantara.txt
+ls
 cd ..
-sudo umount /home/mi_particiion
+sudo umount  ~/Desktop/disco20GB
+cd /mnt
