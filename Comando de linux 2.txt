@@ -37,8 +37,8 @@ Enter
 w
 lsblk
 sudo mkfs.ext4 /dev/sdb1
-mkdir ~/Desktop/disco20GB
-sudo mount /dev/sdb1 ~/Desktop/disco20GB
+mkdir ~/Desktop/disco10GB
+sudo mount /dev/sdb1 ~/Desktop/disco10GB
 sudo mount /dev/sdb1 /mnt
 df -h
 cd ~/Desktop/disco20GB
